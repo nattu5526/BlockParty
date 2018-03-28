@@ -123,7 +123,7 @@ class ColorMatch extends PluginBase implements Listener{
         return true;
     }
     
-    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
+    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args):bool{
             if(strtolower($cmd->getName()) == "bp"){
                     if(isset($args[0])){
                         if($sender instanceof Player){
