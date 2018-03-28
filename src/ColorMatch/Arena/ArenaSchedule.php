@@ -44,7 +44,7 @@ class ArenaSchedule extends Task{
         }
     }
     
-    public function onRun($currentTick){
+    public function onRun(int $currentTick){
         if(strtolower($this->arena->data['signs']['enable_status']) === 'true'){
             $this->updateTime++;
             if($this->updateTime >= $this->arena->data['signs']['sign_update_time']){
