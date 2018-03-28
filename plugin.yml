@@ -6,45 +6,45 @@ author: CreeperFace, edited by Zeao.
 description: BlockParty Mini-Game.
 
 commands:
-    cm:
+    bp:
         description: "ColorMatch command"
 
 permissions:
-    cm:
+    bp:
         description: "main ColorMatch permission"
         default: op
         children:
-            cm.command:
+            bp.command:
                 description: "main command permission"
                 default: op
                 children:
-                    cm.command.help:
+                    bp.command.help:
                         description: "ColorMatch help"
                         default: true
-                    cm.command.join:
+                    bp.command.join:
                         description: "join to arena"
                         default: true
-                    cm.command.leave:
+                    bp.command.leave:
                         description: "leave arena "
                         default: true
-                    cm.command.start:
+                    bp.command.start:
                         description: "start game"
                         default: op
-                    cm.command.stop:
+                    bp.command.stop:
                         description: "stop game"
                         default: op
-                    cm.command.kick:
+                    bp.command.kick:
                         description: "kick player from the arena"
                         default: op
-                    cm.command.lobby:
+                    bp.command.lobby:
                         description: "send player to lobby"
                         default: true
-                    cm.command.set:
+                    bp.command.set:
                         description: "allow player to edit arenas from the game"
                         default: op
-            cm.sign:
+            bp.sign:
                 description: "join using signs"
                 default: true
-            cm.acces:
+            bp.acces:
                 description: "allow player to play colormatch"
                 default: true
