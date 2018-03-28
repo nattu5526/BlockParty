@@ -124,12 +124,12 @@ class ColorMatch extends PluginBase implements Listener{
     }
     
     public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-            if(strtolower($cmd->getName()) == "cm"){
+            if(strtolower($cmd->getName()) == "bp"){
                     if(isset($args[0])){
                         if($sender instanceof Player){
                         switch(strtolower($args[0])){
                             case "lobby":
-                                if(!$sender->hasPermission('cm.command.lobby')){
+                                if(!$sender->hasPermission('bp.command.lobby')){
                                     $sender->sendMessage($this->getMsg('has_not_permission'));
                                     break;
                                 }
@@ -141,7 +141,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 $sender->sendMessage($this->getPrefix().$this->getMsg('send_to_main_world'));
                                 break;
                             case "set":
-                                if(!$sender->hasPermission('cm.command.set')){
+                                if(!$sender->hasPermission('bp.command.set')){
                                     $sender->sendMessage($this->getMsg('has_not_permission'));
                                     break;
                                 }
@@ -165,24 +165,24 @@ class ColorMatch extends PluginBase implements Listener{
                                 $sender->sendMessage($this->getPrefix().$this->getMsg('enable_setup_mode'));
                                 break;
                             case "help":
-                                if(!$sender->hasPermission("cm.command.help")){
+                                if(!$sender->hasPermission("bp.command.help")){
                                     $sender->sendMessage($this->getMsg('has_not_permission'));
                                     break;
                                 }
-                                $msg = "§9--- §c§lColorMatch help§l§9 ---§r§f";
-                                if($sender->hasPermission('cm.command.lobby')) $msg .= $this->getMsg('lobby');
-                                if($sender->hasPermission('cm.command.leave')) $msg .= $this->getMsg('onleave');
-                                if($sender->hasPermission('cm.command.join')) $msg .= $this->getMsg('onjoin');
-                                if($sender->hasPermission('cm.command.start')) $msg .= $this->getMsg('start');
-                                if($sender->hasPermission('cm.command.stop')) $msg .= $this->getMsg('stop');
-                                if($sender->hasPermission('cm.command.kick')) $msg .= $this->getMsg('kick');
-                                if($sender->hasPermission('cm.command.set')) $msg .= $this->getMsg('set');
-                                if($sender->hasPermission('cm.command.delete')) $msg .= $this->getMsg('delete');
-                                if($sender->hasPermission('cm.command.create')) $msg .= $this->getMsg('create');
+                                $msg = "§9--- §c§lBlocK Party help§l§9 ---§r§f";
+                                if($sender->hasPermission('bp.command.lobby')) $msg .= $this->getMsg('lobby');
+                                if($sender->hasPermission('bp.command.leave')) $msg .= $this->getMsg('onleave');
+                                if($sender->hasPermission('bp.command.join')) $msg .= $this->getMsg('onjoin');
+                                if($sender->hasPermission('bp.command.start')) $msg .= $this->getMsg('start');
+                                if($sender->hasPermission('bp.command.stop')) $msg .= $this->getMsg('stop');
+                                if($sender->hasPermission('bp.command.kick')) $msg .= $this->getMsg('kick');
+                                if($sender->hasPermission('bp.command.set')) $msg .= $this->getMsg('set');
+                                if($sender->hasPermission('bp.command.delete')) $msg .= $this->getMsg('delete');
+                                if($sender->hasPermission('bp.command.create')) $msg .= $this->getMsg('create');
                                 $sender->sendMessage($msg);
                                 break;
                             case "create":
-                                if(!$sender->hasPermission('cm.command.create')){
+                                if(!$sender->hasPermission('bp.command.create')){
                                     $sender->sendMessage($this->getMsg ('has_not_permission'));
                                     break;
                                 }
@@ -200,7 +200,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 $sender->sendMessage($this->getPrefix().$this->getMsg('arena_create'));
                                 break;
                             case "delete":
-                                if(!$sender->hasPermission('cm.command.delete')){
+                                if(!$sender->hasPermission('bp.command.delete')){
                                     $sender->sendMessage($this->getMsg ('has_not_permission'));
                                     break;
                                 }
@@ -217,7 +217,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 $sender->sendMessage($this->getPrefix().$this->getMsg('arena_delete'));
                                 break;
                             case "join":
-                                if(!$sender->hasPermission('cm.command.join')){
+                                if(!$sender->hasPermission('bp.command.join')){
                                     $sender->sendMessage($this->getMsg('has_not_permission'));
                                     break;
                                 }
@@ -236,7 +236,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 $this->ins[$args[1]]->joinToArena($sender);
                                 break;
                             case "leave":
-                                if(!$sender->hasPermission('cm.command.leave')){
+                                if(!$sender->hasPermission('bp.command.leave')){
                                     $sender->sendMessage($this->getMsg ('has_not_permission'));
                                     break;
                                 }
@@ -251,7 +251,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 $this->getPlayerArena($sender)->leaveArena($sender);
                                 break;
                             case "start":
-                                if(!$sender->hasPermission('cm.command.start')){
+                                if(!$sender->hasPermission('bp.command.start')){
                                     $sender->sendMessage($this->plugin->getMsg('has_not_permission'));
                                     break;
                                 }
@@ -274,7 +274,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 $this->getPlayerArena($sender)->startGame();
                                 break;
                             case "stop":
-                                if(!$sender->hasPermission('cm.command.start')){
+                                if(!$sender->hasPermission('bp.command.start')){
                                     $sender->sendMessage($this->plugin->getMsg('has_not_permission'));
                                     break;
                                 }
@@ -298,7 +298,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 break;
                             //TO-DO case "ban":
                             case "kick": // cm kick [arena] [player] [reason]
-                                if(!$sender->hasPermission('cm.command.kick')){
+                                if(!$sender->hasPermission('bp.command.kick')){
                                     $sender->sendMessage($this->getMsg('has_not_permission'));
                                     break;
                                 }
@@ -316,7 +316,7 @@ class ColorMatch extends PluginBase implements Listener{
                                 $this->ins[$args[1]]->kickPlayer($args[2], $args[3]);
                                 break;
                             case "setlobby":
-                                if(!$sender->hasPermission('cm.command.setlobby')){
+                                if(!$sender->hasPermission('bp.command.setlobby')){
                                     $sender->sendMessage($this->getMsg('has_not_permission'));
                                     break;
                                 }
